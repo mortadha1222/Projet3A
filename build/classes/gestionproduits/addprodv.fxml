@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="gestionproduits.AddprodvController">
+    <stylesheets>
+        <URL value="@addprodv.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="tftitle2" layoutX="50.0" layoutY="32.0" promptText="title" />
+      <TextField fx:id="tfdesc2" layoutX="50.0" layoutY="76.0" promptText="description" />
+      <TextField fx:id="tfprice2" layoutX="50.0" layoutY="122.0" promptText="price" />
+      <TextField fx:id="tfstock2" layoutX="50.0" layoutY="175.0" promptText="stock" />
+      <TextField fx:id="tfimg2" layoutX="52.0" layoutY="239.0" promptText="url image" />
+      <TextField fx:id="tfidvend2" layoutX="52.0" layoutY="303.0" promptText="id vend" />
+      <Button layoutX="286.0" layoutY="278.0" mnemonicParsing="false" onAction="#butsave" text="save" />
+      <Button layoutX="287.0" layoutY="189.0" mnemonicParsing="false" onAction="#butclean" text="clean" />
+   </children>
+</AnchorPane>
