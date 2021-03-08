@@ -18,6 +18,7 @@ public interface IServiceUser {
     public void AddUser(users U);
     public void DelUser(users u);
     public void ModUser(users u);
+  //  public void SearchUser(users u);
     //public List<users>AfficherUser()throws SQLException;
     
 }

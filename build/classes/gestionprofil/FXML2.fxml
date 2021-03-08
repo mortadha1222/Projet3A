@@ -14,9 +14,9 @@
       <TextField fx:id="tflname" layoutX="69.0" layoutY="278.0" promptText="LAST NAME" />
       <TextField fx:id="tfadresse" layoutX="69.0" layoutY="338.0" promptText="ADRESS" />
       <TextField fx:id="tftelephone" layoutX="69.0" layoutY="397.0" promptText="TELEPHONE" />
-      <Button layoutX="781.0" layoutY="502.0" mnemonicParsing="false" onAction="#AjouterUser" stylesheets="@../style/ButtonHome1.css" text="ajouter Profil" />
+      <Button layoutX="781.0" layoutY="540.0" mnemonicParsing="false" onAction="#AjouterUser" stylesheets="@../style/ButtonHome1.css" text="ajouter Profil" />
       <TextField fx:id="tfemail" layoutX="69.0" layoutY="454.0" promptText="EMAIL" />
-      <TableView fx:id="tbusers" layoutX="259.0" layoutY="44.0" onMouseClicked="#selectdl" prefHeight="435.0" prefWidth="607.0" stylesheets="@../style/Table.css">
+      <TableView fx:id="tbusers" layoutX="260.0" layoutY="86.0" onMouseClicked="#selectdl" prefHeight="435.0" prefWidth="607.0" stylesheets="@../style/Table.css">
         <columns>
           <TableColumn fx:id="colid" prefWidth="75.0" text="Id User" />
           <TableColumn fx:id="coluser" prefWidth="75.0" text="Username" />
@@ -28,8 +28,12 @@
             <TableColumn fx:id="cole" prefWidth="75.0" text="Email" />
         </columns>
       </TableView>
-      <Button layoutX="517.0" layoutY="502.0" mnemonicParsing="false" onAction="#ModifierUser" stylesheets="@../style/ButtonHome1.css" text="modifier profil" />
-      <Button layoutX="268.0" layoutY="502.0" mnemonicParsing="false" onAction="#SupprimerUser" stylesheets="@../style/ButtonHome1.css" text="supprimer profil" />
-      <TextField fx:id="tfid" editable="false" layoutX="69.0" layoutY="57.0" promptText="ID USER" />
+      <Button layoutX="517.0" layoutY="540.0" mnemonicParsing="false" onAction="#ModifierUser" stylesheets="@../style/ButtonHome1.css" text="modifier profil" />
+      <Button layoutX="267.0" layoutY="540.0" mnemonicParsing="false" onAction="#SupprimerUser" stylesheets="@../style/ButtonHome1.css" text="supprimer profil" />
+      <TextField fx:id="tfid" editable="false" layoutX="69.0" layoutY="57.0" promptText="ID USER" visible="false" />
+      <TextField fx:id="tfchercher" layoutX="415.0" layoutY="45.0" promptText="chercher" />
+      <Button layoutX="563.0" layoutY="45.0" mnemonicParsing="false" onAction="#chercheruser" text="chercher" />
+      <Button layoutX="625.0" layoutY="45.0" mnemonicParsing="false" onAction="#UpUser" text="ASC" />
+      <Button layoutX="663.0" layoutY="45.0" mnemonicParsing="false" onAction="#DownUser" text="DESC" />
    </children>
 </AnchorPane>

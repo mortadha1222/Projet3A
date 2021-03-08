@@ -72,6 +72,8 @@ public class FXML2Controller implements Initializable {
     private TableColumn<users, String> cole;
     @FXML
     private TextField tfid;
+    @FXML
+    private TextField tfchercher;
 
     /**
      * Initializes the controller class.
@@ -217,5 +219,65 @@ ServiceUser su = new ServiceUser();
             Logger.getLogger(FXML2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void chercheruser(ActionEvent event) {
+         try {
+ ServiceUser tc = new ServiceUser();
+            users u = new users();
+            u.setFname(tfchercher.getText());
+            ObservableList<users> list= tc.SearchUsersList(u);
+            colid.setCellValueFactory(new PropertyValueFactory<users,Integer>("id_user"));
+            coluser.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
+            colpass.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
+            colfname.setCellValueFactory(new PropertyValueFactory<users,String>("fname"));
+            colname.setCellValueFactory(new PropertyValueFactory<users,String>("lname"));
+            colad.setCellValueFactory(new PropertyValueFactory<users,String>("adress"));
+            coltel.setCellValueFactory(new PropertyValueFactory<users,Integer>("tel"));
+            cole.setCellValueFactory(new PropertyValueFactory<users,String>("email"));  
+            tbusers.setItems(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(FXML2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+
+    @FXML
+    private void UpUser(ActionEvent event) {
+                 try {
+ ServiceUser tc = new ServiceUser();
+            ObservableList<users> list= tc.UpUsersList();
+            colid.setCellValueFactory(new PropertyValueFactory<users,Integer>("id_user"));
+            coluser.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
+            colpass.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
+            colfname.setCellValueFactory(new PropertyValueFactory<users,String>("fname"));
+            colname.setCellValueFactory(new PropertyValueFactory<users,String>("lname"));
+            colad.setCellValueFactory(new PropertyValueFactory<users,String>("adress"));
+            coltel.setCellValueFactory(new PropertyValueFactory<users,Integer>("tel"));
+            cole.setCellValueFactory(new PropertyValueFactory<users,String>("email"));  
+            tbusers.setItems(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(FXML2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void DownUser(ActionEvent event) {
+                 try {
+ ServiceUser tc = new ServiceUser();
+                  ObservableList<users> list= tc.DownUsersList();
+            colid.setCellValueFactory(new PropertyValueFactory<users,Integer>("id_user"));
+            coluser.setCellValueFactory(new PropertyValueFactory<users,String>("username"));
+            colpass.setCellValueFactory(new PropertyValueFactory<users,String>("password"));
+            colfname.setCellValueFactory(new PropertyValueFactory<users,String>("fname"));
+            colname.setCellValueFactory(new PropertyValueFactory<users,String>("lname"));
+            colad.setCellValueFactory(new PropertyValueFactory<users,String>("adress"));
+            coltel.setCellValueFactory(new PropertyValueFactory<users,Integer>("tel"));
+            cole.setCellValueFactory(new PropertyValueFactory<users,String>("email"));  
+            tbusers.setItems(list);
+        } catch (SQLException ex) {
+            Logger.getLogger(FXML2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }
     
-}
+

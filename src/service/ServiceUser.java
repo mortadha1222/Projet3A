@@ -111,4 +111,66 @@ usersList.add(users);
         }
     }
 
+   /* @Override
+    public void SearchUser(users u) {
+       try {
+           Statement stm = cnx.createStatement();
+           String query="select * from user where first_name = '"+u.getFname()+"'";
+           stm.executeQuery(query);
+       } catch (SQLException ex) {
+           Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    
+    }*/
+public ObservableList<users> SearchUsersList(users u) throws SQLException{
+    ObservableList<users> SusersList= FXCollections.observableArrayList();
+    Statement stm = cnx.createStatement();
+    //users u = new users();
+    String query = "select * from `user` where first_name = '"+u.getFname()+"'";
+    ResultSet rs;
+    rs=stm.executeQuery(query);
+    users users;
+    while(rs.next())
+    {
+ users = new users(rs.getInt("id_user"),rs.getInt("telephone"),rs.getString("username"),rs.getString("password"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("adresse"),rs.getString("email"));  
+System.out.println(users);
+SusersList.add(users);
+
+    }
+    return SusersList;
 }
+public ObservableList<users> UpUsersList() throws SQLException{
+    ObservableList<users> SusersList= FXCollections.observableArrayList();
+    Statement stm = cnx.createStatement();
+    String query = "select * from `user` order by id_user asc";
+    ResultSet rs;
+    rs=stm.executeQuery(query);
+    users users;
+    while(rs.next())
+    {
+ users = new users(rs.getInt("id_user"),rs.getInt("telephone"),rs.getString("username"),rs.getString("password"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("adresse"),rs.getString("email"));  
+System.out.println(users);
+SusersList.add(users);
+
+    }
+    return SusersList;
+}
+public ObservableList<users> DownUsersList() throws SQLException{
+    ObservableList<users> SusersList= FXCollections.observableArrayList();
+    Statement stm = cnx.createStatement();
+    String query = "select * from `user` order by id_user desc";
+    ResultSet rs;
+    rs=stm.executeQuery(query);
+    users users;
+    while(rs.next())
+    {
+ users = new users(rs.getInt("id_user"),rs.getInt("telephone"),rs.getString("username"),rs.getString("password"),rs.getString("first_name"),rs.getString("last_name"),rs.getString("adresse"),rs.getString("email"));  
+System.out.println(users);
+SusersList.add(users);
+
+    }
+    return SusersList;
+}
+}
+
+
