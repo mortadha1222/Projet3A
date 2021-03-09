@@ -171,6 +171,35 @@ SusersList.add(users);
     }
     return SusersList;
 }
+ /*public ObservableList<users> indexAction()
+             
+     {  
+        ObservableList<users> mylist=FXCollections.observableArrayList();
+        String req= " select * from users ";
+        Statement st;
+        try {
+            st=cnx.createStatement();
+            ResultSet resultat=st.executeQuery(req);
+            while(resultat.next())
+            {    users p = new users();
+                  p.setId_user(resultat.getInt(1));
+                  
+                 p.getUsername(resultat.getString(4));
+                 p.getPassword(resultat.getString(5));
+              p.getFname(resultat.getString(7));    
+                     p.setNb_equipment(resultat.getInt(8));
+                   p.setDateDonEquipment(resultat.getDate(6));
+              p.setNomCategorie(resultat.getString(11));
+                
+                 mylist.add(p);
+                    }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipmentService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return mylist;
+     }
+   */ 
 }
 
 
