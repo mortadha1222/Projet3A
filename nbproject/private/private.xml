@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/gestionprofil/FXML2.fxml</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/utils/Maconnexion.java</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/services/IServiceUser.java</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/service/ServiceUser.java</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/style/ButtonHome1.css</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/style/Table.css</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/gestionprofil/FXML2Controller.java</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/entities/users.java</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/gestionprofil/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/mortadha/Desktop/JAVA/gestionprofil/src/gestionprofil/Gestionprofil.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/Entities/Planning.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/Entities/Reservation.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/Utils/MyConnection.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/GUI/PlanningAddGUIController.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/GUI/PlanningAddGUI.fxml</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/Tests/ClassMain.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/GUI/UpdatePlanningController.java</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/GUI/UpdatePlanning.fxml</file>
+            <file>file:/C:/Users/administrater/Documents/NetBeansProjects/Work-It/src/Services/PlanningService.java</file>
         </group>
     </open-files>
 </project-private>
