@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SuggestionController">
+    <children>
+      <TextField fx:id="tfTitle" layoutX="113.0" layoutY="79.0" />
+      <TextArea fx:id="tfDescription" layoutX="113.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="28.0" layoutY="83.0" text="Title" />
+      <Label layoutX="28.0" layoutY="154.0" text="Description" />
+      <TableView fx:id="tableSuggestion" layoutX="324.0" layoutY="79.0" onMouseClicked="#selected" prefHeight="438.0" prefWidth="561.0">
+        <columns>
+          <TableColumn fx:id="tabTitle" prefWidth="135.0" text="Title" />
+          <TableColumn fx:id="tabDescription" prefWidth="220.0" text="Description" />
+            <TableColumn fx:id="tabAnswer" prefWidth="205.0" text="Answer" />
+        </columns>
+      </TableView>
+      <Button layoutX="144.0" layoutY="383.0" mnemonicParsing="false" onAction="#addSuggestion" text="Add" />
+      <Button layoutX="137.0" layoutY="435.0" mnemonicParsing="false" onAction="#modifySuggestion" text="Modify" />
+      <Button layoutX="137.0" layoutY="479.0" mnemonicParsing="false" onAction="#deleteSuggestion" text="Delete" />
+      <Button fx:id="admin" layoutX="568.0" layoutY="23.0" mnemonicParsing="false" onAction="#admin" text="admin" />
+   </children>   
+</AnchorPane>
