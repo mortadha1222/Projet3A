@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrontEventActuController">
+   <children>
+      <TabPane layoutX="11.0" layoutY="10.0" prefHeight="553.0" prefWidth="774.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="printevent" text="Events">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="570.0">
+                     <children>
+                        <TableView fx:id="tableau_eve" layoutX="109.0" layoutY="254.0" prefHeight="223.0" prefWidth="570.0">
+                           <columns>
+                              <TableColumn fx:id="name_event" prefWidth="75.0" text="name" />
+                              <TableColumn fx:id="date_event" prefWidth="531.0" text="Date" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onAction="#RefreshEve" prefHeight="52.0" prefWidth="101.0" text="Refresh" />
+                        <Label fx:id="desclabeve" layoutX="32.0" layoutY="114.0" text="Description :" />
+                        <Button fx:id="printevent1" layoutX="135.0" layoutY="33.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="101.0" text="Print" />
+                        <TextField fx:id="filterField" layoutX="332.0" layoutY="218.0" />
+                        <Label layoutX="259.0" layoutY="221.0" prefHeight="18.0" prefWidth="38.0" text="Find :" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="printact" text="Actualities">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="750.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" onAction="#RefreshAct" prefHeight="52.0" prefWidth="101.0" text="Refresh" />
+                        <Label fx:id="desclabact" layoutX="14.0" layoutY="143.0" text=" Description:" />
+                        <Button fx:id="printactu" layoutX="136.0" layoutY="26.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="101.0" text="Print" />
+                        <TableView fx:id="actTable" layoutX="14.0" layoutY="272.0" prefHeight="200.0" prefWidth="643.0">
+                          <columns>
+                            <TableColumn fx:id="actName" prefWidth="303.99999046325684" text="Name" />
+                            <TableColumn fx:id="actDate" prefWidth="338.66668701171875" text="Date" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="filterFieldAct" layoutX="261.0" layoutY="230.0" />
+                        <Label layoutX="213.0" layoutY="234.0" prefHeight="18.0" prefWidth="38.0" text="Find :" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
