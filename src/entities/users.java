@@ -15,6 +15,11 @@ public class users {
     private int id_user,telephone;
     private String username,password,first_name,last_name,adresse,email;
 
+    public users(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
  
     public users(int id_user, int telephone, String username, String password, String first_name, String last_name, String adresse, String email) {
         this.id_user = id_user;

@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" java-vm-args="-Djava.security.policy=applet.policy "  href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="gestionprofil.jar" size="15364" download="eager" />
+    <jar href="gestionprofil.jar" size="20146" download="eager" />
     <jar href="lib\itextpdf-5.4.1.jar" size="1898417" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
   </resources>

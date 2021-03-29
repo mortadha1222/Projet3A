@@ -16,15 +16,17 @@ import javafx.stage.Stage;
  * @author mortadha
  */
 public class Gestionprofil extends Application {
-    
+    static Stage stg;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXML2.fxml"));
+        this.stg=stage;
+        Parent root = FXMLLoader.load(getClass().getResource("FXML3.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.show();
+        
     }
 
     /**
