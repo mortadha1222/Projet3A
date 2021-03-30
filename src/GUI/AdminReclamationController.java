@@ -7,6 +7,7 @@ package GUI;
 
 import Entities.Reclamation;
 import Services.ReclamationService;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 
 
@@ -17,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +46,7 @@ import javafx.stage.Stage;
 public class AdminReclamationController implements Initializable {
 
     @FXML
-    private Label tfTitle;
+    private JFXTextField tfTitle;
     @FXML
     private TableView<Reclamation> tableReclamation;
     @FXML
@@ -56,6 +59,8 @@ public class AdminReclamationController implements Initializable {
     private TextArea tfAnswer;
     
     private static int id;
+    @FXML
+    private JFXTextField filterField;
 
     /**
      * Initializes the controller class.
@@ -69,8 +74,41 @@ public class AdminReclamationController implements Initializable {
          tabTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
          tabDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
          tabAnswer.setCellValueFactory(new PropertyValueFactory<>("answer"));
+         
+         
+         FilteredList<Reclamation> filteredData = new FilteredList<>(Reclamation, b -> true);
+         
+         		// 2. Set the filter Predicate whenever the filter changes.
+		filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(reclamationn -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (reclamationn.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first title.
+				} else if (reclamationn.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last Description.
+				}
+
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+                
+                
+		SortedList<Reclamation> sortedData = new SortedList<>(filteredData);
+                
+                
+               sortedData.comparatorProperty().bind(tableReclamation.comparatorProperty());
+                
         
-         tableReclamation.setItems(Reclamation); 
+         tableReclamation.setItems(sortedData); 
     }  
         public void loadData(){
                          ObservableList<Reclamation> Reclamation = FXCollections.observableArrayList();
@@ -80,8 +118,43 @@ public class AdminReclamationController implements Initializable {
          tabTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
          tabDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
          tabAnswer.setCellValueFactory(new PropertyValueFactory<>("answer"));
+         
+         
+         
+                  
+         FilteredList<Reclamation> filteredData = new FilteredList<>(Reclamation, b -> true);
+         
+         		// 2. Set the filter Predicate whenever the filter changes.
+		filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(reclamationn -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (reclamationn.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first title.
+				} else if (reclamationn.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last Description.
+				}
+
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+                
+                
+		SortedList<Reclamation> sortedData = new SortedList<>(filteredData);
+                
+                
+               sortedData.comparatorProperty().bind(tableReclamation.comparatorProperty());
+         
         
-         tableReclamation.setItems(Reclamation); 
+         tableReclamation.setItems(sortedData); 
     
     }
 
@@ -96,7 +169,7 @@ public class AdminReclamationController implements Initializable {
     }
 
 
-     @FXML
+    @FXML
     private void deleteReclamation(ActionEvent event) {
         
         ReclamationService ps = new ReclamationService();
@@ -132,5 +205,22 @@ public class AdminReclamationController implements Initializable {
             
             loadData();
     }
+
+    @FXML
+    private void affiche_produit(ActionEvent event) {
+    }
+
+    @FXML
+    private void affiche_panier(ActionEvent event) {
+    }
+
+    @FXML
+    private void affiche_commande(ActionEvent event) {
+    }
+
+    @FXML
+    private void affiche_suggestion(MouseEvent event) {
+    }
+
     
 }

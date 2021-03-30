@@ -8,33 +8,27 @@ package GUI;
 import Entities.Suggestion;
 import Services.SuggestionService;
 import java.io.IOException;
-
-
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.GridPane;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 
 /**
  * FXML Controller class
@@ -43,118 +37,106 @@ import javafx.stage.Stage;
  */
 public class SuggestionController implements Initializable {
 
+    @FXML
+    private ScrollPane scroll;
+    @FXML
+    private GridPane grid;
+    @FXML
+    private ImageView add;
+    @FXML
+    private ImageView refresh;
     
-    private Label label;
-    @FXML
-    private TextField tfTitle;
-    @FXML
-    private TextArea tfDescription;
-    @FXML
-    private TableView<Suggestion> tableSuggestion;
-    @FXML
-    private TableColumn<Suggestion, String> tabTitle;
-    @FXML
-    private TableColumn<Suggestion, String> tabDescription;
-    @FXML
-    private TableColumn<Suggestion, String> tabAnswer;
-    private static int id;
+        int id_user=1;
     
-    @FXML
-    private Button admin;
+
+       
+      SuggestionService ss= new SuggestionService();
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                 ObservableList<Suggestion> Suggestion = FXCollections.observableArrayList();
-                 SuggestionService ps = new SuggestionService();
-         for(Suggestion c: ps.displaySuggestion())
-             Suggestion.add(c);
-         tabTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-         tabDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-         tabAnswer.setCellValueFactory(new PropertyValueFactory<>("answer"));
+        refresh();
+    }    
+
+    @FXML
+    private void add(MouseEvent event) throws IOException {
         
-         tableSuggestion.setItems(Suggestion); 
-         
+                    Parent root = FXMLLoader.load(getClass().getResource("SuggestionAdd.fxml"));
+                  Stage mainStage = new Stage();
+                 Scene scene = new Scene(root);
+                   mainStage.setScene(scene);
+                   mainStage.show();
     }
 
-    public void loadData(){
-                         ObservableList<Suggestion> Suggestion = FXCollections.observableArrayList();
-                 SuggestionService ps = new SuggestionService();
-         for(Suggestion c: ps.displaySuggestion())
-             Suggestion.add(c);
-         tabTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-         tabDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-         tabAnswer.setCellValueFactory(new PropertyValueFactory<>("answer"));
+       @FXML
+     void refresh() {
         
-         tableSuggestion.setItems(Suggestion); 
-    
+        Suggestion suggestion;
+        
+        List<Suggestion> suggestions = new ArrayList<>();
+        List<Suggestion> s = new ArrayList<>();
+        grid.getColumnConstraints().clear();
+grid.getRowConstraints().clear();
+grid.getChildren().clear();
+        
+        
+        try {
+         suggestions.addAll(ss.read(id_user));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     int column=0;
+    int row=1;
+   try { for(int i=0;i<suggestions.size();i++){
+        FXMLLoader fxmlloader = new FXMLLoader();
+        fxmlloader.setLocation(getClass().getResource("ItemSuggestion.fxml"));
+         AnchorPane anchorPane =fxmlloader.load();
+          
+      
+        ItemSuggestionController itemSuggestionController = fxmlloader.getController();
+      itemSuggestionController.setData(suggestions.get(i));
+    if(column == 1){
+        column=0;
+         row++;
+    }
+        
+grid.add(anchorPane, column++ , row);
+
+       GridPane.setMargin(anchorPane, new Insets(35));}
+       } catch (IOException ex) {
+         ex.printStackTrace();
+         }
+    }
+
+
+
+    @FXML
+    private void affiche_suggestion() {
+        
+ 
+           
+           FXMLLoader fxmlLoader = new FXMLLoader();
+           fxmlLoader.setLocation(getClass().getResource("/GUI/Suggestion.fxml"));
+
+
+
+           
     }
 
     @FXML
-    private void addSuggestion(ActionEvent event) {
-        String title=tfTitle.getText();
-        String description=tfDescription.getText();
-        int id_user=1;   
-        Suggestion r= new Suggestion(title,description,id_user);
-            SuggestionService ps = new SuggestionService();
-            ps.ajouterSuggestion(r);
-            
-            loadData();
-    }    
-        @FXML
-    private void modifySuggestion(ActionEvent event) {
+    private void affiche_produit(ActionEvent event) {
+    }
 
-            SuggestionService rs = new SuggestionService();
-            Suggestion u = new Suggestion();
-            u.setTitle(tfTitle.getText());
-            u.setDescription(tfDescription.getText());
-            rs.updateSuggestion(u,id);
+    @FXML
+    private void affiche_panier(ActionEvent event) {
+    }
 
-            
-            loadData();
+    @FXML
+    private void affiche_commande(ActionEvent event) {
+    }
+
     
-    }
-        @FXML
-    private void deleteSuggestion(ActionEvent event) {
-        
-        SuggestionService ps = new SuggestionService();
-        
-      if(!tableSuggestion.getSelectionModel().getSelectedItems().isEmpty()) {
-           
-           ps.supprimerSuggestion(tableSuggestion.getSelectionModel().getSelectedItems().get(0));
-            loadData();
-    }
-        
-        
-       else{
-           
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText(null);
-        alert.setContentText("aucun élément 'a ètè séléctionné");
-        alert.showAndWait();
-
-           
-        
-       }
-    }
-    
-        @FXML
-    private void selected(MouseEvent event) {
-        Suggestion r = tableSuggestion.getSelectionModel().getSelectedItem();
-        id=r.getId();
-        tfTitle.setText(r.getTitle());
-        tfDescription.setText(r.getDescription());
-
-        
-    }
-        @FXML
-    private void admin(ActionEvent event) throws IOException , SQLException {
-        admin.getScene().getWindow().hide();
-        Parent root = FXMLLoader.load(getClass().getResource("adminSuggestion.fxml"));
-        // Parent root = FXMLLoader.load(getClass().getResource("/profil/profil.fxml"));
-        Stage mainStage = new Stage();
-        Scene scene = new Scene(root);
-        mainStage.setScene(scene);
-        mainStage.show();
-        
-    }
 }

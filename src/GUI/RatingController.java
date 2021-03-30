@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -90,5 +91,21 @@ public class RatingController implements Initializable {
           btn.setText("update your rate");
        };
         }
+
+    @FXML
+    private void affiche_produit(ActionEvent event) {
+    }
+
+    @FXML
+    private void affiche_panier(ActionEvent event) {
+    }
+
+    @FXML
+    private void affiche_commande(ActionEvent event) {
+    }
+
+    @FXML
+    private void affiche_suggestion(MouseEvent event) {
+    }
     
 }

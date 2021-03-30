@@ -15,7 +15,6 @@ public interface IReclamation <R>{
     
         public void ajouterReclamation(R r);
     public void supprimerReclamation(R r);
-    public void updateReclamation(R r , int id);
     public void updateReclamationAnswer(R r , int id);
     public List<R> displayReclamation();
     

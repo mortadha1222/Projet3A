@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="136.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ItemSuggestionController">
+       <children>
+      <Label fx:id="titleItem" layoutX="158.0" layoutY="6.0" text="titre" />
+      <Label fx:id="descriptionItem" layoutX="14.0" layoutY="36.0" prefHeight="44.0" prefWidth="363.0" text="description" />
+      <Label fx:id="traitement" layoutX="326.0" layoutY="6.0" text="Label" />
+      <Label layoutX="144.0" layoutY="80.0" />
+      <Label layoutX="14.0" layoutY="28.0" text="Suggestion :" />
+      <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="412.0" layoutY="84.0" onMouseClicked="#delete" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../srcs/deleticon.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="details" fitHeight="44.0" fitWidth="44.0" layoutX="347.0" layoutY="84.0" onMouseClicked="#changeScreenButtonPushed" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../srcs/details.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="date" layoutX="442.0" layoutY="6.0" text="Label" />
+      <Circle fx:id="circle" fill="#ff213f" layoutX="299.0" layoutY="15.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="474.33575439453125" endY="-13.000015258789062" layoutX="68.0" layoutY="14.0" startX="-68.00001525878906" startY="-14.0" />
+      <Line endX="-78.49998474121094" endY="122.49998474121094" layoutX="78.0" layoutY="24.0" startX="-78.70712280273438" startY="-22.292892456054688" />
+      <Line endX="-87.99998474121094" endY="112.99998474121094" layoutX="88.0" layoutY="34.0" startX="453.58575439453125" startY="112.99998474121094" />
+      <Line endX="444.58575439453125" endY="-42.29289245605469" layoutX="98.0" layoutY="44.0" startX="444.08575439453125" startY="102.49998474121094" />
+   </children>
+</AnchorPane>

@@ -5,6 +5,11 @@
  */
 package Entities;
 
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 /**
  *
  * @author ASUS
@@ -12,23 +17,42 @@ package Entities;
 public class Reclamation {
     
      int id,id_user;
-     String title,description,answer;
+     String title,description,answer,archive;
+     Date date;
 
-    public Reclamation(int id, String title, String description, String answer, int id_user) {
+    public Reclamation(int id, String title, String description, String answer, int id_user, Date date,String archive ) {
         this.id = id;
         this.id_user = id_user;
         this.title = title;
         this.description = description;
         this.answer = answer;
+        this.archive = archive;
+        this.date = date;
     }
 
-    public Reclamation( String title, String description , int id_user) {
+
+
+    public Reclamation(int id, String title, String description, String answer, int id_user, Date date) {
+        this.id = id;
         this.id_user = id_user;
         this.title = title;
         this.description = description;
+        this.answer = answer;
+        this.date=date;
+    }
+
+    public Reclamation( String title, String description , int id_user, Date date) {
+        this.id_user = id_user;
+        this.title = title;
+        this.description = description;
+        this.date=date;
     }
 
     public Reclamation() {
+    }
+
+    public Reclamation(String title, String description, int id_user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -70,5 +94,28 @@ public class Reclamation {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+        public String getArchive() {
+        return archive;
+    }
+
+    public void setArchive(String archive) {
+        this.archive = archive;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Reclamation(int id_user, String title, String description) {
+        this.id_user = id_user;
+        this.title = title;
+        this.description = description;
+    }
+
+     
     
 }

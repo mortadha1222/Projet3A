@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.head-background {
+    -fx-background-color: linear-gradient(to left, #303dec, #0d00c9);
+}
+
+.body_background {
+    -fx-background-color: linear-gradient(to left, #bbf6ff, #bbf6ff);
+}

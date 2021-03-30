@@ -32,7 +32,7 @@ public class RatingService implements IRating<Rating>{
  
           pst.setString(1,String.valueOf(r.getValue()));
        
-          pst.setString(2,String.valueOf("1"));
+          pst.setString(2,String.valueOf(r.getId_user()));
          
         
           pst.executeUpdate();

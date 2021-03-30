@@ -5,6 +5,10 @@
  */
 package Entities;
 
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 /**
  *
  * @author ASUS
@@ -13,22 +17,25 @@ public class Suggestion {
     
          int id,id_user;
      String title,description,answer;
+     Date date;
 
-    public Suggestion(int id, String title, String description, String answer, int id_user) {
+    public Suggestion(int id, String title, String description, String answer, int id_user, Date date) {
         this.id = id;
         this.id_user = id_user;
         this.title = title;
         this.description = description;
         this.answer = answer;
+        this.date=date;
     }
 
     public Suggestion() {
     }
 
-    public Suggestion( String title, String description,int id_user) {
+    public Suggestion( String title, String description,int id_user , Date date) {
         this.id_user = id_user;
         this.title = title;
         this.description = description;
+        this.date=date;
     }
 
 
@@ -71,6 +78,14 @@ public class Suggestion {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
      
      
